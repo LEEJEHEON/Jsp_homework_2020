@@ -21,7 +21,6 @@ public class bookDAO {
         return book;
     }
 
-
 	public static List<book> findAll() throws Exception {
         String sql = "SELECT b.*, c.categoryName " +
                      "FROM book b LEFT JOIN category c ON b.categoryId= c.id";
@@ -34,13 +33,13 @@ public class bookDAO {
             return list;
         }
     }
-	public static List<book> findByName(String Author) throws Exception {
+	public static List<book> findByName(String author) throws Exception {
         String sql = "SELECT b.*, c.categoryName " +
-        			 "FROM book b LEFT JOIN category c ON b.categoryId= c.id" +
-                     "WHERE b.Author LIKE ?";
+        			 "FROM book b LEFT JOIN category c ON b.categoryId= c.id " +
+                     "WHERE b.author LIKE ?";
         try (Connection connection = DB.getConnection("book");
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, Author + "%");
+            statement.setString(1, author + "%");
             try (ResultSet resultSet = statement.executeQuery()) {
                 ArrayList<book> list = new ArrayList<book>();
                 while (resultSet.next())

@@ -52,8 +52,4 @@ public class book {
 		this.publisher = publisher;
 	}
 
-
-
-
-
 }
