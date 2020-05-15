@@ -21,7 +21,7 @@ User user = UserDAO3.findById(id);
 
 <div class="container">
 
-<h1>학생</h1>
+<h1>사용자</h1>
 
 <table>
   <tr>

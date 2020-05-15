@@ -31,29 +31,29 @@ List<User> list = UserDAO2.findByName(srchText);
   <button type="submit">조회</button>
 </form>
 
-<table>
-    <thead>
-        <tr>
-            <th>사용자아이디</th>
-            <th>이름</th>
-            <th>이메일</th>
-            <th>학과</th>
-            <th>사용자유형</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for (User user : list) { %>
-            <tr>
-                 <td><%= user.getUserid() %></td>
-                 <td><%= user.getName() %></td>
-                 <td><%= user.getEmail() %></td>
-                 <td><%= user.getDepartmentName() %></td>
-                 <td><%= user.getUserType() %></td>
-            </tr>
-        <% } %>
-    </tbody>
-</table>
+		<table>
+			<thead>
+				<tr>
+					<th>사용자아이디</th>
+					<th>이름</th>
+					<th>이메일</th>
+					<th>학과</th>
+					<th>사용자유형</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for (User user : list) { %>
+				<tr>
+					<td><%= user.getUserid() %></td>
+					<td><a href="user1.jsp?id=<%= user.getId() %>"><%= user.getName() %></a></td>
+					<td><%= user.getEmail() %></td>
+					<td><%= user.getDepartmentName() %></td>
+                	<td><%= user.getUserType() %></td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
 
-</div>
+	</div>
 </body>
 </html>
